@@ -67,6 +67,7 @@ function uploadFile() {
     })
     .then(response => response.json())
     .then(responseData => {
+        console.log(responseData);
         uploadedData = responseData.data; // Assign 'uploadedData' globally
         headers = responseData.headers || []; // Assign 'headers' globally
         displayTable(responseData);
