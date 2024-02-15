@@ -1,5 +1,5 @@
 // Global variables
-let uploadedData;
+let uploadedData = [];
 let headers = [];
 let recordsPerPage = 100;
 let currentPage = 1;
@@ -65,7 +65,7 @@ function uploadFile() {
         method: 'POST',
         body: formData
     })
-    .then(response => response)
+    .then(response => response.json())
     .then(responseData => {
         uploadedData = responseData.data; // Assign 'uploadedData' globally
         headers = responseData.headers || []; // Assign 'headers' globally
