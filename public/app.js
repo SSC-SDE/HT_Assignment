@@ -168,7 +168,7 @@ function sortTable(columnIndex) {
     rows.forEach(row => tbody.appendChild(row));
 }
 
-const headerRow = table.createTHead().insertRow();
+// const headerRow = table.createTHead().insertRow();
 headers.forEach((header, index) => {
     const th = document.createElement('th');
     th.textContent = header;
