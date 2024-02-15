@@ -1,6 +1,6 @@
 // Global variables
 let uploadedData;
-let headers;
+let headers = [];
 let recordsPerPage = 100;
 let currentPage = 1;
 let sortOrders = [];
