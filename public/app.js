@@ -82,7 +82,7 @@ function displayTable({ fileName, headers, data, currentPage, totalPages }) {
     tableContainer.innerHTML = '';
 
     // Create header row
-    const headerRow = table.createTHead().insertRow();
+    const headerRow = table.createTHead().insertRow(); // Move this line inside displayTable function
     headers.forEach((header, index) => {
         const th = document.createElement('th');
         th.textContent = header;
