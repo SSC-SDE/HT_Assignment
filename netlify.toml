@@ -1,4 +1,3 @@
 [build]
 
-command = "node server.js" 
 publish = "public"    
