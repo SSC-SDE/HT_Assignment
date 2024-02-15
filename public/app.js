@@ -65,7 +65,7 @@ function uploadFile() {
         method: 'POST',
         body: formData
     })
-    .then(response => response.json())
+    .then(response => response)
     .then(responseData => {
         uploadedData = responseData.data; // Assign 'uploadedData' globally
         headers = responseData.headers || []; // Assign 'headers' globally
