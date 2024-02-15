@@ -1,4 +1,3 @@
-[build]
 
 publish = "public"
-command = "nodemon server.js"
+command = "node server.js"
