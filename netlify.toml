@@ -2,3 +2,10 @@
 
 publish = "public"
 command = "node server.js"
+functions = "functions"
+
+[[redirects]]
+  from = "/upload"
+  to = "/.netlify/functions/upload"
+  status = 200
+  force = true

@@ -73,7 +73,5 @@ function parseCsvData(csvString) {
   return csvString.split('\n').map(line => line.split(',').map(cell => cell.trim()));
 }
 
-// Start the server
-app.listen(port, () => {
-  console.log(`Server is running on port ${port}`);
-});
+// Export the express app as a serverless function
+module.exports = app;
