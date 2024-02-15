@@ -68,7 +68,7 @@ function uploadFile() {
     .then(response => response.json())
     .then(responseData => {
         uploadedData = responseData.data; // Assign 'uploadedData' globally
-        headers = responseData.headers; // Assign 'headers' globally
+        headers = responseData.headers || []; // Assign 'headers' globally
         displayTable(responseData);
     })
     .catch(error => console.error('Error uploading file:', error));
@@ -141,37 +141,37 @@ document.getElementById('searchInput').addEventListener('input', () => {
     displayTable({ fileName, headers, data: filteredData, currentPage, totalPages: Math.ceil(filteredData.length / recordsPerPage) });
 });
 
-function sortTable(columnIndex) {
-    const table = document.querySelector('table');
-    const tbody = table.querySelector('tbody');
-    const rows = Array.from(tbody.querySelectorAll('tr'));
+// function sortTable(columnIndex) {
+//     const table = document.querySelector('table');
+//     const tbody = table.querySelector('tbody');
+//     const rows = Array.from(tbody.querySelectorAll('tr'));
 
-    rows.sort((rowA, rowB) => {
-        const cellA = rowA.cells[columnIndex];
-        const cellB = rowB.cells[columnIndex];
+//     rows.sort((rowA, rowB) => {
+//         const cellA = rowA.cells[columnIndex];
+//         const cellB = rowB.cells[columnIndex];
 
-        if (!cellA || !cellB) {
-            return 0; // Do nothing if either cell is undefined
-        }
+//         if (!cellA || !cellB) {
+//             return 0; // Do nothing if either cell is undefined
+//         }
 
-        const valueA = cellA.textContent.trim();
-        const valueB = cellB.textContent.trim();
+//         const valueA = cellA.textContent.trim();
+//         const valueB = cellB.textContent.trim();
 
-        if (isNaN(valueA) || isNaN(valueB)) {
-            return valueA.localeCompare(valueB);
-        } else {
-            return parseFloat(valueA) - parseFloat(valueB);
-        }
-    });
+//         if (isNaN(valueA) || isNaN(valueB)) {
+//             return valueA.localeCompare(valueB);
+//         } else {
+//             return parseFloat(valueA) - parseFloat(valueB);
+//         }
+//     });
 
-    // Append sorted rows back to table
-    rows.forEach(row => tbody.appendChild(row));
-}
+//     // Append sorted rows back to table
+//     rows.forEach(row => tbody.appendChild(row));
+// }
 
-// const headerRow = table.createTHead().insertRow();
-headers.forEach((header, index) => {
-    const th = document.createElement('th');
-    th.textContent = header;
-    th.addEventListener('click', () => handleHeaderClick(index)); // Attach handleHeaderClick function
-    headerRow.appendChild(th);
-});
+// // const headerRow = table.createTHead().insertRow();
+// headers.forEach((header, index) => {
+//     const th = document.createElement('th');
+//     th.textContent = header;
+//     th.addEventListener('click', () => handleHeaderClick(index)); // Attach handleHeaderClick function
+//     headerRow.appendChild(th);
+// });
