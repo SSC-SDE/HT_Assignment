@@ -13,6 +13,8 @@ function toggleSortOrder(columnIndex) {
         sortOrders[columnIndex] = 'asc';
     }
 }
+
+// Function to sort the table
 function sortTable(columnIndex) {
     const table = document.querySelector('table');
     const tbody = table.querySelector('tbody');
